@@ -1,4 +1,5 @@
-#Instalçao Cypress:#
+#Instalçao Cypress:
+
 Passo a passo:
 No prompt de comando entre na pasta do arquivo e instale: npm install cypress@9.1.1 --save -include=dev
 Inicie o npm: npm init
