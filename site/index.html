@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Essa tag especifica a versão do Internet Explorer (IE) para o qual o documento é otimizado. 
+    "IE=edge" indica que a versão mais recente do IE disponível deve ser usada para renderizar a página da web. 
+    É recomendado para garantir a melhor renderização possível da página da web em navegadores modernos.F-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Ela define a largura da janela de visualização (viewport) do navegador e a escala inicial da página da web.
+    A propriedade "width=device-width" faz com que a largura do viewport seja definida como a largura do dispositivo 
+    em que a página está sendo exibida.-->
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="img-box">
+            <img src="img-formulario.png">
+        </div>
+        <div class="form-box">
+            <h2>Criar Conta</h2>
+            <p> Já é um membro? <a href="login.html"> Login </a> </p> <br>
+            <form id="cadastroUsuario" action="sucesso.html">
+                <div class="input-group">
+                    <label for="nome"> Nome Completo</label>
+                    <input type="text" id="nome" placeholder="Digite o seu nome completo">
+                    <script>
+                        const form = document.getElementById("cadastroUsuario");
+                        const nomeInput = document.getElementById("nome");
+
+                        form.addEventListener("submit", (event) => {
+                            event.preventDefault();
+                            const erro = document.getElementById("erroNome");
+                            // Verifique se o campo de nome está vazio
+                            if (nomeInput.value === "") {
+                                event.preventDefault(); // Previne o envio do formulário
+                                erro.textContent = "O campo de nome é obrigatório"; // Exibe a mensagem de erro
+                            } else {
+                                // O campo de nome foi preenchido, pode enviar o formulário
+                                erro.textContent = ""; // Limpa a mensagem de erro
+                            }
+                        });
+                    </script>
+                    <div id="erroNome" class="error"></div>
+                </div>
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Digite o seu email">
+                    <script>
+
+                        const emailInput = document.getElementById("email");
+
+                        form.addEventListener("submit", (event) => {
+                            event.preventDefault();
+                            const erro = document.getElementById("erroEmail");
+                            // Verifique se o campo de email está vazio
+                            if (emailInput.value === "") {
+                                event.preventDefault(); // Previne o envio do formulário
+                                erro.textContent = "O campo e-mail é obrigatório"; // Exibe a mensagem de erro
+                            } else {
+                                // O campo de email foi preenchido, pode enviar o formulário
+                                erro.textContent = ""; // Limpa a mensagem de erro
+                            }
+                        });
+                    </script>
+                    <div id="erroEmail" class="error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" placeholder="Digite o seu telefone" >
+
+                    <script>
+
+                        const telefoneInput = document.getElementById("telefone");
+
+                        form.addEventListener("submit", (event) => {
+                            event.preventDefault();
+                            const erro = document.getElementById("erroTelefone");
+                            // Verifique se o campo de telefone está vazio
+                            if (emailInput.value === "") {
+                                event.preventDefault(); // Previne o envio do formulário
+                                erro.textContent = "O campo telefone é obrigatório"; // Exibe a mensagem de erro
+                            } else {
+                                // O campo de telefone foi preenchido, pode enviar o formulário
+                                erro.textContent = ""; // Limpa a mensagem de erro
+                            }
+                        });
+                    </script>
+                    <div id="erroTelefone" class="error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="end" id="endereco" placeholder="Digite o seu endereço" >
+
+                    <script>
+
+                        const enderecoInput = document.getElementById("endereco");
+
+                        form.addEventListener("submit", (event) => {
+                            event.preventDefault();
+                            const erro = document.getElementById("erroEndereco");
+                            // Verifique se o campo de endereco está vazio
+                            if (emailInput.value === "") {
+                                event.preventDefault(); // Previne o envio do formulário
+                                erro.textContent = "O campo endereço é obrigatório"; // Exibe a mensagem de erro
+                            } else {
+                                // O campo de endereco foi preenchido, pode enviar o formulário
+                                erro.textContent = ""; // Limpa a mensagem de erro
+                            }
+                        });
+                    </script>
+                    <div id="erroEndereco" class="error"></div>
+                </div>
+
+                <div class="input-group w50">
+                    <label for="cidade">Cidade</label>
+                    <input type="cid" id="cidade" placeholder="Digite sua cidade" >
+
+                    <script>
+
+                        const cidadeInput = document.getElementById("cidade");
+
+                        form.addEventListener("submit", (event) => {
+                            event.preventDefault();
+                            const erro = document.getElementById("erroCidade");
+                            // Verifique se o campo de Cidade está vazio
+                            if (emailInput.value === "") {
+                                event.preventDefault(); // Previne o envio do formulário
+                                erro.textContent = "O campo cidade é obrigatório"; // Exibe a mensagem de erro
+                            } else {
+                                // O campo de Cidade foi preenchido, pode enviar o formulário
+                                erro.textContent = ""; // Limpa a mensagem de erro
+                            }
+                        });
+                    </script>
+                    <div id="erroCidade" class="error"></div>
+                </div>
+
+                <div class="input-group w50">
+                    <label for="Estado">Estado</label>
+                    <input type="estado" id="estado" placeholder="Digite seu estado" >
+
+                    <script>
+
+                        const estadoInput = document.getElementById("estado");
+
+                        form.addEventListener("submit", (event) => {
+                            event.preventDefault();
+                            const erro = document.getElementById("erroEstado");
+                            // Verifique se o campo de Estado está vazio
+                            if (emailInput.value === "") {
+                                event.preventDefault(); // Previne o envio do formulário
+                                erro.textContent = "O campo Estado é obrigatório"; // Exibe a mensagem de erro
+                            } else {
+                                // O campo de Estado foi preenchido, pode enviar o formulário
+                                erro.textContent = ""; // Limpa a mensagem de erro
+                            }
+                        });
+                    </script>
+                    <div id="erroEstado" class="error"></div>
+                </div>
+
+                <div class="input-group w50">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="Digite sua senha" >
+
+                    <script>
+
+                        const senhaInput = document.getElementById("senha");
+
+                        form.addEventListener("submit", (event) => {
+                            event.preventDefault();
+                            const erro = document.getElementById("erroSenha");
+                            // Verifique se o campo de Senha está vazio
+                            if (emailInput.value === "") {
+                                event.preventDefault(); // Previne o envio do formulário
+                                erro.textContent = "O campo Senha é obrigatório"; // Exibe a mensagem de erro
+                            } else {
+                                // O campo de Senha foi preenchido, pode enviar o formulário
+                                erro.textContent = ""; // Limpa a mensagem de erro
+                            }
+                        });
+                    </script>
+                    <div id="erroSenha" class="error"></div>
+                </div>
+
+                <div class="input-group w50">
+                    <label for="confirmarSenha">Confirmar Senha</label>
+                    <input type="password" id="confirmarSenha" placeholder="Confirme a senha" >
+
+                    <script>
+
+                        const confirmarSenhaInput = document.getElementById("confirmarSenha");
+
+                        form.addEventListener("submit", (event) => {
+                            event.preventDefault();
+                            const erro = document.getElementById("erroConfirmarSenha");
+                            // Verifique se o campo de ConfirmarSenha está vazio
+                            if (emailInput.value === "") {
+                                event.preventDefault(); // Previne o envio do formulário
+                                erro.textContent = "O campo Confirmar Senha é obrigatório"; // Exibe a mensagem de erro
+                            } else {
+                                // O campo de ConfirmarSenha foi preenchido, pode enviar o formulário
+                                erro.textContent = ""; // Limpa a mensagem de erro
+                            }
+                        });
+                    </script>
+                    <div id="erroConfirmarSenha" class="error"></div>
+                </div>
+
+                <div class="input-group">
+                    <button type="submit">Cadastrar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
