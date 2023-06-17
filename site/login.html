@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Login</title>
+</head>
+
+<body class="bod">
+    <div class="box">
+        <div class="img-box">
+            <img src="img-formulario.png">
+        </div>
+        <div class="form-box">
+            <h1>Login</h1>
+            <p class="mens"> Ainda não é um membro? <a href="cadastro.html"> Cadastre-se </a> </p>
+            <form id = "login" action="index.html">
+                <div class="input-group">
+                    <label for="email"><i class="fas fa-envelope"></i> E-mail</label>
+                    <input type="text" id="email" placeholder="Digite o seu email">
+                    <div id="erroEmail" class="error"></div>
+                </div>
+                
+                <div class="input-group ">
+                    <label for="senha"><i class="fa fa-lock"></i> Senha</label>
+                    <input type="password" id="senha" placeholder="Digite sua senha">
+                    <div id="erroSenha" class="error"></div>
+                </div>
+
+                <div class="input-group">
+                    <button type = "submit">Entrar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById("login");
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault(); // Previne o envio do formulário
+
+            const emailInput = document.getElementById("email");
+            const erroEmail = document.getElementById("erroEmail");
+            const email = emailInput.value.trim();
+            // Expressão regular para validar o formato de e-mail
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === "") {
+                erroEmail.textContent = "Informe o e-mail";
+                return;
+            } else if (!emailRegex.test(email)) {
+                erroEmail.textContent = "O e-mail informado é inválido";
+                return;
+            } else {
+                erroEmail.textContent = "";
+            }
+            const senhaInput = document.getElementById("senha");
+            const erroSenha = document.getElementById("erroSenha");
+            if (senhaInput.value === "") {
+                erroSenha.textContent = "Informe a senha";
+                return;
+            }
+            erroSenha.textContent = "";
+
+            // Se todas as validações passaram, o formulário pode ser enviado
+            form.submit();
+        });
+    </script>
+</body>
+</html>
