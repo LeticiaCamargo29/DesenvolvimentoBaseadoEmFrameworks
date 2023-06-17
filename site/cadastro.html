@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Essa tag especifica a versão do Internet Explorer (IE) para o qual o documento é otimizado. 
+    "IE=edge" indica que a versão mais recente do IE disponível deve ser usada para renderizar a página da web. 
+    É recomendado para garantir a melhor renderização possível da página da web em navegadores modernos.F-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Ela define a largura da janela de visualização (viewport) do navegador e a escala inicial da página da web.
+    A propriedade "width=device-width" faz com que a largura do viewport seja definida como a largura do dispositivo 
+    em que a página está sendo exibida.-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Cadastro</title>
+</head>
+
+<body class="bod">
+    <div class="box">
+        <div class="img-box">
+            <img src="img-formulario.png">
+        </div>
+        <div class="form-box">
+            <h2>Criar Conta</h2>
+            <p> Já é um membro? <a href="login.html"> Login </a> </p> <br>
+            <form id="cadastroUsuario" action="sucesso.html">
+                <div class="input-group">
+                    <label for="nome"><i class="fas fa-user"></i> Nome</label>
+                    <input type="text" id="nome" placeholder="Digite o seu nome completo">
+                    <div id="erroNome" class="error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="email"><i class="fas fa-envelope"></i> E-mail</label>
+                    <input type="text" id="email" placeholder="Digite o seu email">
+                    <div id="erroEmail" class="error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="telefone"><i class="fas fa-phone"></i> Telefone</label>
+                    <input type="tel" id="telefone" placeholder="Digite o seu telefone">
+                    <div id="erroTelefone" class="error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="endereco"><i class="fas fa-map-marker-alt"></i> Endereço</label>
+                    <input type="text" id="endereco" placeholder="Digite o seu endereço">
+                    <div id="erroEndereco" class="error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="cpf"><i class="fas fa-id-card"></i> CPF</label>
+                    <input type="text" id="cpf" placeholder="Digite seu CPF">
+                    <div id="erroCpf" class="error"></div>
+                </div>
+
+                <div class="input-group">
+                    <label for="data-nascimento"><i class="fas fa-calendar-alt"></i> Data de Nascimento</label>
+                    <input type="date" id="data-nascimento">
+                    <div id="erroData" class="error"></div>
+                </div>
+
+                <div class="input-group w50">
+                    <label for="senha"><i class="fa fa-lock"></i> Senha</label>
+                    <input type="password" id="senha" placeholder="Digite sua senha">
+                    <div id="erroSenha" class="error"></div>
+                </div>
+
+                <div class="input-group w50">
+                    <label for="confirmarSenha"><i class="fa fa-lock"></i> Confirmar Senha</label>
+                    <input type="password" id="confirmarSenha" placeholder="Confirme a senha">
+                    <div id="erroConfirmarSenha" class="error"></div>
+                </div>
+
+                <div class="input-group">
+                    <button type="submit">Cadastrar</button>
+                </div>
+            </form>
+
+            <script>
+                const form = document.getElementById("cadastroUsuario");
+
+                form.addEventListener("submit", (event) => {
+                    event.preventDefault(); // Previne o envio do formulário
+
+                    const nomeInput = document.getElementById("nome");
+                    const erroNome = document.getElementById("erroNome");
+                    if (nomeInput.value === "") {
+                        erroNome.textContent = "O campo de nome é obrigatório";
+                        return; // Retorna para evitar a validação adicional
+                    }
+                    erroNome.textContent = "";
+
+                    const emailInput = document.getElementById("email");
+                    const erroEmail = document.getElementById("erroEmail");
+                    const email = emailInput.value.trim();
+                    // Expressão regular para validar o formato de e-mail
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (email === "") {
+                        erroEmail.textContent = "O campo e-mail é obrigatório";
+                        return;
+                    } else if (!emailRegex.test(email)) {
+                        erroEmail.textContent = "O e-mail informado é inválido";
+                        return;
+                    } else {
+                        erroEmail.textContent = "";
+                    }
+
+                    const telefoneInput = document.getElementById("telefone");
+                    const erroTelefone = document.getElementById("erroTelefone");
+                    if (telefoneInput.value === "") {
+                        erroTelefone.textContent = "O campo telefone é obrigatório";
+                        return;
+                    }
+                    erroTelefone.textContent = "";
+
+                    const enderecoInput = document.getElementById("endereco");
+                    const erroEndereco = document.getElementById("erroEndereco");
+                    if (enderecoInput.value === "") {
+                        erroEndereco.textContent = "O campo endereço é obrigatório";
+                        return;
+                    }
+                    erroEndereco.textContent = "";
+
+                    const cpfInput = document.getElementById("cpf");
+                    const erroCpf = document.getElementById("erroCpf");
+                    if (cpfInput.value === "") {
+                        erroCpf.textContent = "O campo CPF é obrigatório";
+                        return;
+                    }
+                    erroCpf.textContent = "";
+
+                    const dataInput = document.getElementById("data-nascimento");
+                    const erroData = document.getElementById("erroData");
+                    if (dataInput.value === "") {
+                        erroData.textContent = "O campo data de nascimento é obrigatório";
+                        return;
+                    }
+                    erroData.textContent = "";
+
+                    const senhaInput = document.getElementById("senha");
+                    const erroSenha = document.getElementById("erroSenha");
+                    if (senhaInput.value === "") {
+                        erroSenha.textContent = "O campo senha é obrigatório";
+                        return;
+                    }
+                    erroSenha.textContent = "";
+
+                    const confirmarSenhaInput = document.getElementById("confirmarSenha");
+                    const erroConfirmarSenha = document.getElementById("erroConfirmarSenha");
+                    if (confirmarSenhaInput.value === "") {
+                        erroConfirmarSenha.textContent = "O campo confirmar senha é obrigatório";
+                        return;
+                    }
+                    erroConfirmarSenha.textContent = "";
+
+                    // Se todas as validações passaram, o formulário pode ser enviado
+                    form.submit();
+                });
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
